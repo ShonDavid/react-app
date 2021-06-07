@@ -1,6 +1,8 @@
-.App {
+.BingMap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 15vh;
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
 }
