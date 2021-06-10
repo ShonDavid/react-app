@@ -7,29 +7,12 @@ function BingMap(props) {
 
 	useEffect(() => {
 		setPushPins(props.pins);
-		setPolyLine([
-			{
-				locations:
-					props.pins.length === 0
-						? []
-						: props.pins.map((pin) => {
-								let toRet = {
-									latitude: pin.location[0],
-									longitude: pin.location[1],
-								};
-								return toRet;
-						  }),
-				options: {
-					strokeColor: 'red',
-					visible: true,
-				},
-			},
-		]);
+		setPolyLine(props.polyline);
 	}, [props.pins]);
 
-	useEffect(() => {
-		console.log('polyline=', polyline);
-	}, [polyline]);
+	// useEffect(() => {
+	// 	console.log('polyline=', polyline);
+	// }, [polyline]);
 
 	return (
 		<div className='BingMap'>
@@ -46,7 +29,7 @@ function BingMap(props) {
 				// 		option: { color: 'red' },
 				// 	},
 				// ]}
-				PolyLine={polyline}
+				polyline={polyline}
 				pushPins={pushPins}
 			></ReactBingmaps>
 		</div>
