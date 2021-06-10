@@ -5,25 +5,19 @@ import Inputter from './Components/Inputter';
 
 function App() {
 	const [pins, setPins] = useState([]);
+	const [polyline, setPolyLine] = useState([]);
 
 	const addPin = (onePin) => {
-		let pinsToAdd;
-		console.log('onePin=', onePin);
-		if (pins.length > 2) {
-			pinsToAdd = pins.slice(1);
-			pinsToAdd.push(onePin);
-			setPins(pinsToAdd);
-		} else {
-			pinsToAdd = pins;
-			pinsToAdd.push(onePin);
-			setPins(pinsToAdd);
-		}
+		let pinsToAdd = pins;
+		pinsToAdd.push(onePin);
+		setPins(pinsToAdd);
+		setPolyLine(props.polyline);
 	};
 
 	return (
 		<div className='App'>
 			<Inputter addPin={addPin} />
-			<BingMap pins={pins} />
+			<BingMap pins={pins} polyline={polyline} />
 		</div>
 	);
 }
