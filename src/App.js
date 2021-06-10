@@ -5,7 +5,7 @@ import Inputter from './Components/Inputter';
 
 function App() {
 	const [pins, setPins] = useState([]);
-	const [polyline, setPolyLine] = useState([]);
+	const [polyline, setPolyLine] = useState({});
 
 	const addPin = (onePin) => {
 		let pinsToAdd = pins;
@@ -18,6 +18,7 @@ function App() {
 				pinsToAdd[0].location,
 			],
 			option: {
+				//style of the line with polyline
 				strokeColor: 'red',
 				strokeThickness: 3,
 			},

@@ -3,7 +3,7 @@ import { ReactBingmaps } from 'react-bingmaps';
 import { useEffect, useState } from 'react';
 function BingMap(props) {
 	const [pushPins, setPushPins] = useState([]);
-	const [polyline, setPolyLine] = useState([]);
+	const [polyline, setPolyLine] = useState({});
 
 	useEffect(() => {
 		setPushPins(props.pins);
@@ -19,7 +19,7 @@ function BingMap(props) {
 				bingmapKey={process.env.REACT_APP_BING_KEY}
 				center={
 					pushPins.length === 0
-						? [10.0827, 70.2707]
+						? [30.72, 34.88]
 						: pushPins[pushPins.length - 1].location
 				}
 				polyline={polyline}
