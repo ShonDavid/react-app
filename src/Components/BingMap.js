@@ -7,28 +7,21 @@ function BingMap(props) {
 
 	useEffect(() => {
 		setPushPins(props.pins);
-		setPolyLine(props.polyline);
 	}, [props.pins]);
 
-	// useEffect(() => {
-	// 	console.log('polyline=', polyline);
-	// }, [polyline]);
+	useEffect(() => {
+		setPolyLine(props.polyline);
+	}, [props.polyline]);
 
 	return (
 		<div className='BingMap'>
 			<ReactBingmaps
-				bingmapKey='AlLIyQyHrjClUlcXVt9dEdP6amZeKI13YhnNY9qbmasERZ5537U-Vb7TU-9a6887'
+				bingmapKey={process.env.REACT_APP_BING_KEY}
 				center={
 					pushPins.length === 0
 						? [10.0827, 70.2707]
 						: pushPins[pushPins.length - 1].location
 				}
-				// pushPins={[
-				// 	{
-				// 		location: [13.0827, 80.2707],
-				// 		option: { color: 'red' },
-				// 	},
-				// ]}
 				polyline={polyline}
 				pushPins={pushPins}
 			></ReactBingmaps>

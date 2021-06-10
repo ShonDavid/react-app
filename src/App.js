@@ -11,7 +11,19 @@ function App() {
 		let pinsToAdd = pins;
 		pinsToAdd.push(onePin);
 		setPins(pinsToAdd);
-		setPolyLine(props.polyline);
+
+		let polylineToAdd = {
+			location: [
+				...pinsToAdd.map((pin) => pin.location),
+				pinsToAdd[0].location,
+			],
+			option: {
+				strokeColor: 'red',
+				strokeThickness: 3,
+			},
+		};
+
+		setPolyLine(polylineToAdd);
 	};
 
 	return (
